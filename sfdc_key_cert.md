@@ -4,17 +4,17 @@ rm -rf server.pass.key
 openssl req -new -key server.key -out server.csr
 openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
 
-## Now private key and cert are generated
-## Import the cert server.crt to Salesforce target server connected App
-## To test the JWT connection from node.js, you can use the server.key
-## iss: comsumer_key, aus: https://login.salesforce.com, sub: salesforce login user name
+### Now private key and cert are generated
+### Import the cert server.crt to Salesforce target server connected App
+### To test the JWT connection from node.js, you can use the server.key
+### iss: comsumer_key, aus: https://login.salesforce.com, sub: salesforce login user name
 
 
-## To use Salesforce named credential from source org, use the below commands to generate the JKS file
+### To use Salesforce named credential from source org, use the below commands to generate the JKS file
 
 openssl pkcs12 -export -in server.crt -inkey server.key -out abc.p12
 keytool -importkeystore -srckeystore abc.p12 -srcstoretype PKCS12 -destkeystore abc.jks -deststoretype JKS
-## please use the below command to check the alias name, if not correct, you can change it
+### please use the below command to check the alias name, if not correct, you can change it
 keytool -list -v -keystore ./abc.jks
 keytool -keystore abc.jks -changealias -alias 1 -destalias test
 keytool -list -v -keystore ./abc.jks
