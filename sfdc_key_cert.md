@@ -26,6 +26,7 @@ keytool -keystore abc.jks -changealias -alias 1 -destalias test
 keytool -list -v -keystore ./abc.jks
 
 ### Rerefences
+https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm
 https://help.salesforce.com/articleView?id=000338348&language=en_US&type=1&mode=1
 https://stackoverflow.com/questions/11952274/how-can-i-create-keystore-from-an-existing-certificate-abc-crt-and-abc-key-fil
 https://stackoverflow.com/questions/17695297/importing-the-private-key-public-certificate-pair-in-the-java-keystore
